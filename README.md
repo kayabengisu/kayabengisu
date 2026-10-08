@@ -11,7 +11,7 @@ I work in R, Python and SQL on questions such as who to target, what drives an o
 
 **[bank-marketing-ml](https://github.com/kayabengisu/bank-marketing-ml)**: Which bank customers subscribe to a term deposit after a direct-marketing call?
 - *Method:* EDA and classification in Python/scikit-learn on 11,260 contacts with a 12% positive rate, comparing models on AUC, recall and F1 instead of accuracy.
-- *Result:* Logistic regression reaches AUC 0.90 and catches 80% of subscribers. Random Forest scores higher on accuracy (0.89) but misses two-thirds of them, so picking the model on accuracy would have chosen the wrong one. The strongest feature, call duration, is only known after the call, so the README treats the model as a retrospective scoring tool and not a pre-call targeting model. *(Team project; my part: EDA and classification.)*
+- *Result:* Logistic regression reaches AUC 0.90 and 80% recall, but its strongest feature, call duration, is only known after the call (target leakage). Without it, a realistic pre-call model reaches AUC 0.71. Random Forest's low recall (0.34) turned out to be an artefact of the fixed 0.5 threshold; tuning the threshold with cross-validation lifts it above 0.7. *(Team project; my part: EDA and classification. Leakage and threshold follow-up: my own.)*
 
 **[apples-stp-analysis](https://github.com/kayabengisu/apples-stp-analysis)**: Which fresh-apple buyers in Austria should a brand target, and how should it position itself?
 - *Method:* Segmentation, targeting and positioning on a 434-respondent survey in R: standardised k-means, χ² profiling, and PCA positioning maps.
